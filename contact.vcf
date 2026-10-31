@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Muchiri;Raphael Gitari;;;
+FN:Raphael Gitari Muchiri
+TITLE:Software Engineer
+ROLE:Web Developer
+TEL;TYPE=CELL,VOICE:+254794040986
+EMAIL;TYPE=INTERNET,WORK:mrgitari27@gmail.com
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/mr-gitari
+URL;TYPE=GitHub:https://github.com/Mr-Gitari
+NOTE:Web Developer | Full-Stack JavaScript Delivery. React\, Node.js\, Tailwind CSS.
+END:VCARD

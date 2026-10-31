@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raphael Gitari Muchiri | Software Engineer</title>
+  <meta name="description" content="Raphael Gitari Muchiri, Software Engineer. I design and build clean, responsive and user-focused web applications with React, Tailwind CSS, Node.js and modern JavaScript.">
+  <meta name="theme-color" content="#060a13" id="meta-theme">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Raphael Gitari Muchiri | Software Engineer">
+  <meta property="og:description" content="Web Developer | Full-Stack JavaScript Delivery | React, Node.js. Tap to connect.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322d3ee'/%3E%3Cstop offset='.55' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' text-anchor='middle' fill='white'%3ERM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    /* Apply the saved theme before first paint to avoid a flash */
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- Icon library (inline so every icon works offline) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  </svg>
+
+  <!-- Animated background -->
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Raphael Gitari Muchiri, back to top">
+      <span class="brand-mark">RM</span>
+      <span class="brand-text">Raphael<span>.dev</span></span>
+    </a>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between dark and light theme" title="Switch theme">
+      <svg class="ico icon-sun"><use href="#i-sun"/></svg>
+      <svg class="ico icon-moon"><use href="#i-moon"/></svg>
+    </button>
+  </header>
+
+  <main class="layout" id="top">
+
+    <!-- Profile card -->
+    <section class="profile glass reveal" style="--d:1" aria-label="Profile">
+      <div class="avatar">
+        <div class="avatar-inner">
+          <span class="monogram" aria-hidden="true">RM</span>
+          <img id="photo" src="images/photo.png" alt="Portrait of Raphael Gitari Muchiri" width="400" height="400">
+        </div>
+      </div>
+
+      <h1>Raphael Gitari Muchiri</h1>
+      <p class="role">Software Engineer</p>
+      <p class="typed-line" aria-live="off"><span class="prompt">&gt;</span> <span id="typed">Web Developer</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="tagline">I design and build clean, responsive and user-focused web applications.</p>
+
+      <nav class="social" aria-label="Contact and social links">
+        <a href="tel:+254794040986" data-tip="Call" aria-label="Call Raphael" style="--c:#06b6d4">
+          <svg class="ico"><use href="#i-phone"/></svg>
+        </a>
+        <a href="https://wa.me/254794040986?text=Hi%20Raphael%2C%20I%20found%20your%20digital%20business%20card." target="_blank" rel="noopener noreferrer" data-tip="WhatsApp" aria-label="Message Raphael on WhatsApp" style="--c:#25d366">
+          <svg class="ico ico-fill"><use href="#i-whatsapp"/></svg>
+        </a>
+        <a href="mailto:mrgitari27@gmail.com" data-tip="Email" aria-label="Email Raphael" style="--c:#f472b6">
+          <svg class="ico"><use href="#i-mail"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/mr-gitari" target="_blank" rel="noopener noreferrer" data-tip="LinkedIn" aria-label="Raphael on LinkedIn" style="--c:#0a66c2">
+          <svg class="ico ico-fill"><use href="#i-linkedin"/></svg>
+        </a>
+        <a href="https://github.com/Mr-Gitari" target="_blank" rel="noopener noreferrer" data-tip="GitHub" aria-label="Raphael on GitHub" style="--c:#8b5cf6">
+          <svg class="ico ico-fill"><use href="#i-github"/></svg>
+        </a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="contact.vcf" download="Raphael-Gitari-Muchiri.vcf">
+          <svg class="ico"><use href="#i-download"/></svg> Save to Contacts
+        </a>
+        <div class="actions-row">
+          <a class="btn btn-ghost btn-sm" href="Raphael-Gitari-Muchiri-CV.pdf" download="Raphael-Gitari-Muchiri-CV.pdf">
+            <svg class="ico"><use href="#i-file"/></svg> Download CV
+          </a>
+          <button class="btn btn-ghost btn-sm" id="share-btn" type="button">
+            <svg class="ico"><use href="#i-share"/></svg> Share
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right column -->
+    <div class="content">
+
+      <section class="card glass reveal" style="--d:2">
+        <h2>About me</h2>
+        <p>I'm Raphael, a software engineer who loves turning complex ideas into smooth, intuitive digital experiences. I design and build clean, responsive and user-focused web applications, working across the stack with React, Tailwind CSS, Node.js and modern JavaScript.</p>
+        <p>I care about the details people actually feel: fast load times, layouts that look right on every screen, and code that is easy to maintain. Whether it's a polished front end, a dependable API, or an idea that needs shaping into a product, I focus on delivering work that is reliable, elegant and ready for real users.</p>
+        <p class="cta-line">Have a project in mind or want to collaborate? <a href="mailto:mrgitari27@gmail.com">Let's talk.</a></p>
+      </section>
+
+      <section class="card glass reveal" style="--d:3">
+        <h2>Skills &amp; tools</h2>
+        <ul class="chips">
+          <li>JavaScript (ES6+)</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Tailwind CSS</li>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>Responsive Design</li>
+          <li>REST APIs</li>
+          <li>Git &amp; GitHub</li>
+        </ul>
+      </section>
+
+      <section class="card glass reveal" style="--d:4">
+        <h2>Get in touch</h2>
+        <ul class="rows">
+          <li class="row">
+            <a class="row-link" href="tel:+254794040986" style="--c:#06b6d4">
+              <span class="row-icon"><svg class="ico"><use href="#i-phone"/></svg></span>
+              <span class="row-text"><small>Phone</small><strong>+254 794 040 986</strong></span>
+            </a>
+            <button class="copy" type="button" data-copy="+254794040986" aria-label="Copy phone number"><svg class="ico"><use href="#i-copy"/></svg></button>
+          </li>
+          <li class="row">
+            <a class="row-link" href="mailto:mrgitari27@gmail.com" style="--c:#f472b6">
+              <span class="row-icon"><svg class="ico"><use href="#i-mail"/></svg></span>
+              <span class="row-text"><small>Email</small><strong>mrgitari27@gmail.com</strong></span>
+            </a>
+            <button class="copy" type="button" data-copy="mrgitari27@gmail.com" aria-label="Copy email address"><svg class="ico"><use href="#i-copy"/></svg></button>
+          </li>
+          <li class="row">
+            <a class="row-link" href="https://www.linkedin.com/in/mr-gitari" target="_blank" rel="noopener noreferrer" style="--c:#0a66c2">
+              <span class="row-icon"><svg class="ico ico-fill"><use href="#i-linkedin"/></svg></span>
+              <span class="row-text"><small>LinkedIn</small><strong>linkedin.com/in/mr-gitari</strong></span>
+            </a>
+            <span class="go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
+          </li>
+          <li class="row">
+            <a class="row-link" href="https://github.com/Mr-Gitari" target="_blank" rel="noopener noreferrer" style="--c:#8b5cf6">
+              <span class="row-icon"><svg class="ico ico-fill"><use href="#i-github"/></svg></span>
+              <span class="row-text"><small>GitHub</small><strong>github.com/Mr-Gitari</strong></span>
+            </a>
+            <span class="go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
+          </li>
+          <li class="row">
+            <a class="row-link" href="Raphael-Gitari-Muchiri-CV.pdf" download="Raphael-Gitari-Muchiri-CV.pdf" style="--c:#f59e0b">
+              <span class="row-icon"><svg class="ico"><use href="#i-file"/></svg></span>
+              <span class="row-text"><small>Resume</small><strong>Download my CV (PDF)</strong></span>
+            </a>
+            <span class="go" aria-hidden="true"><svg class="ico"><use href="#i-download"/></svg></span>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Raphael Gitari Muchiri. Scan, connect, build something great.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
