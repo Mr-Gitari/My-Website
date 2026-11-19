@@ -206,7 +206,8 @@
 
           <!-- Tropix -->
           <article class="project glass sr wide" style="--g1:#ff9a3c;--g2:#ff5fa2;--g3:#ff4d4d;--g4:#7bc67b">
-            <div class="p-art p-art-tropix">
+            <div class="p-art p-art-tropix p-art-img">
+              <img src="images/tropix/hero.webp" alt="Tropix home screen showing four flavoured bottles: orange, berry, strawberry and matcha" width="1200" height="454" loading="lazy">
               <span class="p-name">TROPIX</span>
               <span class="badge badge-live"><i></i> Live</span>
             </div>
@@ -217,6 +218,26 @@
               <ul class="tags">
                 <li>React</li><li>TypeScript</li><li>Three.js</li><li>Framer Motion</li><li>Tailwind CSS</li>
               </ul>
+              <div class="shots-wrap">
+                <p class="shots-label">Screenshots <span>swipe or tap to enlarge</span></p>
+                <div class="shots" id="tropix-shots">
+                  <button class="shot" type="button" data-caption="Strawberry Rush: spin the 3D bottle in any direction and the drink stays level inside the glass.">
+                    <img src="images/tropix/strawberry.webp" alt="Tropix Strawberry Rush product page with a tilted 3D bottle" width="1100" height="618" loading="lazy">
+                  </button>
+                  <button class="shot" type="button" data-caption="Orange Burst: every flavour gets its own colour theme, particles and backdrop.">
+                    <img src="images/tropix/orange.webp" alt="Tropix Orange Burst product page in warm amber tones" width="1100" height="618" loading="lazy">
+                  </button>
+                  <button class="shot" type="button" data-caption="Berry Pink: tap an ingredient to learn what it does.">
+                    <img src="images/tropix/berry.webp" alt="Tropix Berry Pink page with an ingredient tooltip open" width="1100" height="618" loading="lazy">
+                  </button>
+                  <button class="shot" type="button" data-caption="Matcha Green: calories, sugar and volume at a glance, with a one-tap add to cart.">
+                    <img src="images/tropix/matcha.webp" alt="Tropix Matcha Green product page in deep green tones" width="1100" height="618" loading="lazy">
+                  </button>
+                  <button class="shot" type="button" data-caption="Cart drawer: quantity controls and a mix-pack bar that unlocks 15% off.">
+                    <img src="images/tropix/cart.webp" alt="Tropix cart drawer with a mix-pack discount progress bar" width="1100" height="618" loading="lazy">
+                  </button>
+                </div>
+              </div>
               <details>
                 <summary>Highlights</summary>
                 <ul class="bullets">
@@ -458,6 +479,17 @@
     <a href="#journey" data-target="journey"><svg class="ico"><use href="#i-award"/></svg><span>Journey</span></a>
     <a href="#contact" data-target="contact"><svg class="ico"><use href="#i-send"/></svg><span>Contact</span></a>
   </nav>
+
+  <!-- Screenshot lightbox -->
+  <dialog class="lightbox" id="lightbox" aria-label="Screenshot viewer">
+    <button class="lb-close" id="lb-close" type="button" aria-label="Close screenshot">&times;</button>
+    <button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Previous screenshot">&#8592;</button>
+    <figure>
+      <img id="lb-img" src="" alt="">
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Next screenshot">&#8594;</button>
+  </dialog>
 
   <!-- Easter egg: terminal -->
   <dialog class="term" id="terminal" aria-label="Terminal">

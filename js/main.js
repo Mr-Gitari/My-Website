@@ -300,6 +300,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- 10b. Screenshot lightbox ---
+  const shotBtns = Array.from(document.querySelectorAll(".shot"));
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lb-img");
+  const lbCap = document.getElementById("lb-cap");
+  let lbIndex = 0;
+
+  function showShot(i) {
+    if (!shotBtns.length) return;
+    lbIndex = (i + shotBtns.length) % shotBtns.length;
+    const btn = shotBtns[lbIndex];
+    const img = btn.querySelector("img");
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    lbCap.textContent = btn.dataset.caption || img.alt;
+  }
+
+  if (lightbox && typeof lightbox.showModal === "function" && shotBtns.length) {
+    shotBtns.forEach((btn, i) => {
+      btn.setAttribute("aria-label", "Enlarge screenshot " + (i + 1) + " of " + shotBtns.length);
+      btn.addEventListener("click", () => { showShot(i); lightbox.showModal(); });
+    });
+
+    document.getElementById("lb-close").addEventListener("click", () => lightbox.close());
+    document.getElementById("lb-prev").addEventListener("click", () => showShot(lbIndex - 1));
+    document.getElementById("lb-next").addEventListener("click", () => showShot(lbIndex + 1));
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.close(); });
+    lightbox.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") showShot(lbIndex - 1);
+      if (e.key === "ArrowRight") showShot(lbIndex + 1);
+    });
+  } else {
+    shotBtns.forEach((btn) => { btn.style.cursor = "default"; });
+  }
+
   // --- 11. Easter egg: terminal ---
   const termBtn = document.getElementById("terminal-btn");
   const term = document.getElementById("terminal");
