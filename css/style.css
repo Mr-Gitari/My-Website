@@ -1616,3 +1616,40 @@ ul {
     font-size: 1.25rem;
   }
 }
+
+
+/* ----- Demo video dialog ----- */
+.vdialog {
+  width: min(960px, calc(100% - 20px));
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: none;
+  background: transparent;
+  color: #fff;
+}
+
+.vdialog::backdrop {
+  background: rgba(3, 6, 14, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+.vdialog video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  background: #05070f;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.vcap {
+  margin-top: 12px;
+  color: #cdd8f5;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.vdialog a {
+  color: #f472b6;
+}

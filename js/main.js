@@ -335,6 +335,25 @@ document.addEventListener("DOMContentLoaded", () => {
     shotBtns.forEach((btn) => { btn.style.cursor = "default"; });
   }
 
+  // --- 10c. Tropix demo video (downloads only when the visitor taps play) ---
+  const demoBtn = document.getElementById("demo-btn");
+  const demoDialog = document.getElementById("demo-dialog");
+  const demoVideo = document.getElementById("demo-video");
+
+  if (demoBtn && demoDialog && demoVideo && typeof demoDialog.showModal === "function") {
+    demoBtn.addEventListener("click", () => {
+      demoDialog.showModal();
+      const playing = demoVideo.play();
+      if (playing && typeof playing.catch === "function") playing.catch(() => { /* wait for the visitor to press play */ });
+    });
+    const stopDemo = () => { demoVideo.pause(); };
+    document.getElementById("demo-close").addEventListener("click", () => demoDialog.close());
+    demoDialog.addEventListener("click", (e) => { if (e.target === demoDialog) demoDialog.close(); });
+    demoDialog.addEventListener("close", stopDemo);
+  } else if (demoBtn) {
+    demoBtn.hidden = true;
+  }
+
   // --- 11. Easter egg: terminal ---
   const termBtn = document.getElementById("terminal-btn");
   const term = document.getElementById("terminal");
