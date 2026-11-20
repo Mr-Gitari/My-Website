@@ -1,0 +1,100 @@
+/* Availability pill and wireframe cube (see js/3d4.js) */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.status:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.status i {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.status i::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: ping 2s ease-out infinite;
+}
+
+@keyframes ping {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.profile {
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .profile {
+    position: sticky;
+  }
+}
+
+.cube {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  perspective: 300px;
+  pointer-events: none;
+  --rx: -24deg;
+  --ry: 35deg;
+}
+
+.cube-in {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  animation: cube-spin 14s linear infinite;
+}
+
+.cube .f {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  opacity: 0.9;
+}
+
+.cube .f1 { transform: translateZ(22px); }
+.cube .f2 { transform: rotateY(180deg) translateZ(22px); }
+.cube .f3 { transform: rotateY(90deg) translateZ(22px); }
+.cube .f4 { transform: rotateY(-90deg) translateZ(22px); }
+.cube .f5 { transform: rotateX(90deg) translateZ(22px); }
+.cube .f6 { transform: rotateX(-90deg) translateZ(22px); }
+
+@keyframes cube-spin {
+  from { transform: rotateX(var(--rx)) rotateY(var(--ry)); }
+  to { transform: rotateX(var(--rx)) rotateY(calc(var(--ry) + 360deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube-in { animation: none; }
+  .status i::after { animation: none; }
+}
