@@ -1606,7 +1606,7 @@ ul {
     aspect-ratio: 16 / 9;
   }
 
-  .p-art-img img {
+  .p-art-img:not(.p-art-shot) img {
     object-position: 50% 62%;
   }
 
@@ -1652,4 +1652,38 @@ ul {
 
 .vdialog a {
   color: #f472b6;
+}
+
+
+/* ----- Screenshot banners on narrower project cards ----- */
+.p-art-shot {
+  aspect-ratio: 16 / 9;
+}
+
+.p-art-shot img,
+.p-art-shot img {
+  object-position: 50% 0;
+}
+
+/* ----- Logo banner (AquaSense) ----- */
+.p-art-logo img {
+  position: absolute;
+  right: 18px;
+  bottom: 12px;
+  width: clamp(76px, 24%, 110px);
+  height: auto;
+  z-index: 1;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+}
+
+.p-art-shot .p-name {
+  top: 12px;
+  bottom: auto;
+  left: 14px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(6, 10, 19, 0.74);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: 1rem;
 }
