@@ -1,0 +1,148 @@
+/* 3D touches (see js/3d.js) */
+
+/* tilting photo with a soft glare */
+.avatar {
+  --gx: 50%;
+  --gy: 30%;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+.avatar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 50%;
+  background: radial-gradient(circle at var(--gx) var(--gy), rgba(255, 255, 255, 0.28), transparent 55%);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+/* skills sphere */
+.sphere {
+  display: none;
+}
+
+.js .sphere {
+  position: relative;
+  display: block;
+  width: min(100%, 340px);
+  aspect-ratio: 1;
+  margin: 4px auto 22px;
+  border-radius: 50%;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.js .sphere.grabbing {
+  cursor: grabbing;
+}
+
+.sphere::before {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+.sphere-word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.sphere-hint {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* flip stat tiles */
+.stats li {
+  padding: 0;
+  perspective: 700px;
+  background: none;
+  border: none;
+}
+
+.flip-in {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 104px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.flip-in.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-in .front,
+.flip-in .back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-in .back {
+  transform: rotateY(180deg);
+  border-color: var(--accent);
+  color: var(--text);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.flip-in .front span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.flip-in:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-in { transition: none; }
+  .avatar { transition: none; }
+}

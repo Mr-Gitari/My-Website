@@ -17,6 +17,7 @@
   <link rel="apple-touch-icon" href="images/photo.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/revamp.css">
+  <link rel="stylesheet" href="css/revamp3d.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -149,16 +150,26 @@
         <p>I care about the details people actually feel: fast load times, layouts that look right on every screen, and code that is easy to maintain. I've taken 1st place with SilvaGuard, a forest protection platform, and 2nd place at the Impact Hackathon with AgriSenti, a platform for smallholder farmers.</p>
         <p class="cta-line">Have a project in mind or want to collaborate? <a href="#contact">Let's talk.</a></p>
 
-        <ul class="stats" aria-label="Highlights">
-          <li><strong data-count="5">5</strong><span>Featured projects</span></li>
-          <li><strong data-count="2">2</strong><span>Hackathon podiums</span></li>
-          <li><strong data-count="2">2</strong><span>Certifications</span></li>
+        <ul class="stats" aria-label="Highlights (tap a tile for details)">
+          <li><button class="flip-in" type="button" aria-pressed="false">
+            <span class="front"><strong data-count="5">5</strong><span>Featured projects</span></span>
+            <span class="back">Tropix, SilvaGuard, AgriSenti, AquaSense, BodaSafe</span>
+          </button></li>
+          <li><button class="flip-in" type="button" aria-pressed="false">
+            <span class="front"><strong data-count="2">2</strong><span>Hackathon podiums</span></span>
+            <span class="back">1st &middot; SilvaGuard<br>2nd &middot; AgriSenti</span>
+          </button></li>
+          <li><button class="flip-in" type="button" aria-pressed="false">
+            <span class="front"><strong data-count="2">2</strong><span>Certifications</span></span>
+            <span class="back">BE Techified Africa &middot; eMobilis</span>
+          </button></li>
         </ul>
       </section>
 
       <!-- Skills -->
       <section class="card glass sr" id="skills">
         <h2>Skills &amp; tools</h2>
+        <div class="sphere" id="sphere" aria-hidden="true"><span class="sphere-hint">drag to spin</span></div>
 
         <div class="skill-group">
           <h3>Frontend</h3>
@@ -591,6 +602,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="js/3d.js" defer></script>
   <script src="js/main.js"></script>
 </body>
 </html>
