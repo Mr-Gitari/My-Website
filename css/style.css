@@ -1687,3 +1687,82 @@ ul {
   backdrop-filter: blur(6px);
   font-size: 1rem;
 }
+
+
+/* ----- Design polish ----- */
+.proof {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.proof li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.proof .ico {
+  width: 14px;
+  height: 14px;
+}
+
+.proof .gold .ico {
+  color: #fbbf24;
+}
+
+.proof .silver .ico {
+  color: #cbd5e1;
+}
+
+/* calmer tags and roomier project cards */
+.tags li {
+  background: transparent;
+  color: var(--muted);
+}
+
+.p-body {
+  gap: 14px;
+  padding: 22px 24px 24px;
+}
+
+.p-body h3 {
+  font-size: 1.3rem;
+}
+
+.p-desc {
+  line-height: 1.65;
+}
+
+.projects {
+  gap: 24px;
+}
+
+.project {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+@media (hover: hover) {
+  .project:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42), 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+}
+
+.sec-head {
+  margin-bottom: 8px;
+}
+
+section + section {
+  margin-top: clamp(8px, 2vw, 24px);
+}
