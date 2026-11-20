@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
-    if (metaTheme) metaTheme.setAttribute("content", theme === "light" ? "#f2f5fc" : "#060a13");
+    if (metaTheme) metaTheme.setAttribute("content", theme === "light" ? "#f4f2ec" : "#0a0a0a");
     try { localStorage.setItem("theme", theme); } catch (e) { /* storage unavailable */ }
   }
 
