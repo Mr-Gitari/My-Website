@@ -260,3 +260,10 @@ textarea {
   border-radius: 6px;
   background: rgba(10, 10, 10, 0.72);
 }
+
+/* No fade-in on scroll: everything is simply there */
+.js .sr {
+  opacity: 1;
+  translate: 0 0;
+  transition: none;
+}
