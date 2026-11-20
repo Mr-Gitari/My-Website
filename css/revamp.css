@@ -62,11 +62,10 @@ body {
 .profile h1 {
   margin: 4px 0 12px;
   font-family: var(--display);
-  font-size: clamp(2.1rem, 9.5vw, 2.9rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-  text-transform: uppercase;
+  font-size: clamp(1.8rem, 7vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .role {
@@ -74,7 +73,8 @@ body {
   -webkit-background-clip: initial;
   background-clip: initial;
   color: var(--accent);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.14em;
+  font-weight: 600;
 }
 
 .avatar {
@@ -89,7 +89,7 @@ body {
 .btn-primary {
   color: var(--on-accent);
   box-shadow: none;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .btn-primary:hover {
@@ -126,10 +126,10 @@ body {
 .card h2,
 .sec-title {
   gap: 14px;
-  font-size: clamp(1.7rem, 5.5vw, 2.4rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
 }
 
 .card h2::before,
@@ -190,9 +190,9 @@ body {
 }
 
 .p-body h3 {
-  font-size: clamp(1.5rem, 4vw, 1.9rem);
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.25rem, 3.4vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .p-art::after {
@@ -247,4 +247,16 @@ textarea {
 
 .progress {
   background: var(--accent);
+}
+
+.p-name {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.p-art-img .p-name {
+  font-size: 1rem;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(10, 10, 10, 0.72);
 }
