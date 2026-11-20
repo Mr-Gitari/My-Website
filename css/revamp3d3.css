@@ -1,0 +1,153 @@
+/* Interactive journey (see js/3d3.js) */
+.t-filters {
+  display: flex;
+  gap: 8px;
+  margin: 2px 0 18px;
+}
+
+.t-filters button {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.t-filters button.on {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.timeline {
+  --prog: 0;
+  perspective: 900px;
+}
+
+.timeline::before {
+  background: var(--border);
+  opacity: 1;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  width: 2px;
+  height: calc((100% - 12px) * var(--prog));
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.t-item {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.t-item.hide {
+  display: none;
+}
+
+.t-item::before {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.t-item.reached::before {
+  background: var(--accent);
+  transform: scale(1.15);
+}
+
+.t-toggle {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 14px 44px 14px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.15s ease-out;
+}
+
+.t-toggle:hover,
+.t-toggle[aria-expanded="true"] {
+  border-color: var(--border);
+  background: var(--surface-strong);
+}
+
+.t-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.t-chev {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--accent);
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.t-toggle[aria-expanded="true"] .t-chev {
+  transform: rotate(45deg);
+}
+
+.t-more {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.t-item.open .t-more {
+  grid-template-rows: 1fr;
+}
+
+.t-more-in {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 16px;
+}
+
+.t-item.open .t-more-in {
+  padding: 12px 16px 4px;
+}
+
+.t-more .chips li {
+  font-size: 0.78rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-more, .t-toggle, .t-chev, .t-item { transition: none; }
+}
+
+.timeline {
+  list-style: none;
+}
+
+.t-item {
+  list-style: none;
+}
+
+.t-item::marker {
+  content: "";
+}

@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="css/revamp.css">
   <link rel="stylesheet" href="css/revamp3d.css">
   <link rel="stylesheet" href="css/revamp3d2.css">
+  <link rel="stylesheet" href="css/revamp3d3.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -451,31 +452,71 @@
       <!-- Journey -->
       <section class="card glass sr" id="journey">
         <h2>My journey</h2>
+        <div class="t-filters" role="group" aria-label="Filter the journey">
+          <button type="button" class="on" data-f="all" aria-pressed="true">All</button>
+          <button type="button" data-f="award" aria-pressed="false">Awards</button>
+          <button type="button" data-f="learn" aria-pressed="false">Learning</button>
+        </div>
         <ol class="timeline">
-          <li class="t-item t-win">
-            <span class="t-date">Oct 2026</span>
-            <h3>1st place &middot; SilvaGuard</h3>
-            <p>Won overall for technical execution, social impact and innovative system architecture.</p>
+          <li class="t-item t-win" data-type="award">
+            <button class="t-toggle" type="button" aria-expanded="false">
+              <span class="t-date">Oct 2026</span>
+              <h3>1st place &middot; SilvaGuard</h3>
+              <p>Won overall for technical execution, social impact and innovative system architecture.</p>
+              <span class="t-chev" aria-hidden="true">+</span>
+            </button>
+            <div class="t-more"><div class="t-more-in">
+              <ul class="chips"><li>Technical execution</li><li>Social impact</li><li>System architecture</li></ul>
+              <button class="btn btn-ghost btn-sm" type="button" data-goto="SilvaGuard">See the project</button>
+            </div></div>
           </li>
-          <li class="t-item">
-            <span class="t-date">Jan &ndash; Mar 2026</span>
-            <h3>Backend Development Certification</h3>
-            <p>BE Techified Africa. Built RESTful APIs, JWT authentication and MongoDB query flows with Node.js and Express.</p>
+          <li class="t-item " data-type="learn">
+            <button class="t-toggle" type="button" aria-expanded="false">
+              <span class="t-date">Jan &ndash; Mar 2026</span>
+              <h3>Backend Development Certification</h3>
+              <p>BE Techified Africa. Built RESTful APIs, JWT authentication and MongoDB query flows with Node.js and Express.</p>
+              <span class="t-chev" aria-hidden="true">+</span>
+            </button>
+            <div class="t-more"><div class="t-more-in">
+              <ul class="chips"><li>Node.js</li><li>Express</li><li>REST APIs</li><li>JWT</li><li>MongoDB</li></ul>
+              
+            </div></div>
           </li>
-          <li class="t-item">
-            <span class="t-date">Oct &ndash; Dec 2025</span>
-            <h3>Certificate in Web Development</h3>
-            <p>eMobilis Institute of Technology. Full-stack routing, HTML, CSS, Bootstrap, Python, Django and MariaDB.</p>
+          <li class="t-item " data-type="learn">
+            <button class="t-toggle" type="button" aria-expanded="false">
+              <span class="t-date">Oct &ndash; Dec 2025</span>
+              <h3>Certificate in Web Development</h3>
+              <p>eMobilis Institute of Technology. Full-stack routing, HTML, CSS, Bootstrap, Python, Django and MariaDB.</p>
+              <span class="t-chev" aria-hidden="true">+</span>
+            </button>
+            <div class="t-more"><div class="t-more-in">
+              <ul class="chips"><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>Python</li><li>Django</li><li>MariaDB</li></ul>
+              
+            </div></div>
           </li>
-          <li class="t-item t-win t-silver">
-            <span class="t-date">Aug 2025</span>
-            <h3>2nd place &middot; Impact Hackathon</h3>
-            <p>Co-built AgriSenti, a data platform for smallholder farmers.</p>
+          <li class="t-item t-win t-silver" data-type="award">
+            <button class="t-toggle" type="button" aria-expanded="false">
+              <span class="t-date">Aug 2025</span>
+              <h3>2nd place &middot; Impact Hackathon</h3>
+              <p>Co-built AgriSenti, a data platform for smallholder farmers.</p>
+              <span class="t-chev" aria-hidden="true">+</span>
+            </button>
+            <div class="t-more"><div class="t-more-in">
+              <ul class="chips"><li>Full-stack</li><li>Node.js</li><li>REST APIs</li></ul>
+              <button class="btn btn-ghost btn-sm" type="button" data-goto="AgriSenti">See the project</button>
+            </div></div>
           </li>
-          <li class="t-item">
-            <span class="t-date">2024</span>
-            <h3>Kenya Certificate of Secondary Education</h3>
-            <p>Nyeri High School. Elected Student Council Leader (Sports Department) and served as Class Prefect.</p>
+          <li class="t-item " data-type="learn">
+            <button class="t-toggle" type="button" aria-expanded="false">
+              <span class="t-date">2024</span>
+              <h3>Kenya Certificate of Secondary Education</h3>
+              <p>Nyeri High School. Elected Student Council Leader (Sports Department) and served as Class Prefect.</p>
+              <span class="t-chev" aria-hidden="true">+</span>
+            </button>
+            <div class="t-more"><div class="t-more-in">
+              <ul class="chips"><li>Student Council Leader</li><li>Class Prefect</li><li>Sports Department</li></ul>
+              
+            </div></div>
           </li>
         </ol>
 
@@ -605,6 +646,7 @@
 
   <script src="js/3d.js" defer></script>
   <script src="js/3d2.js" defer></script>
+  <script src="js/3d3.js" defer></script>
   <script src="js/main.js"></script>
 </body>
 </html>
