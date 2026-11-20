@@ -1,0 +1,158 @@
+/* 3D project carousel + tilting screenshot viewer (see js/3d2.js) */
+.cflow {
+  margin: 0 0 26px;
+  padding: 18px 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  outline: none;
+}
+
+.cflow:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.cflow-stage {
+  position: relative;
+  width: 100%;
+  perspective: 1000px;
+  perspective-origin: 50% 40%;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.cflow-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--cw, 300px);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg2);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cflow-card.is-front {
+  border-color: var(--accent);
+  box-shadow: 0 24px 50px -18px rgba(0, 0, 0, 0.7);
+}
+
+.cf-art {
+  display: block;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--g1), var(--g2));
+}
+
+.cf-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  pointer-events: none;
+}
+
+.cf-label {
+  display: block;
+  padding: 10px 14px 12px;
+  font-family: var(--display);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.cflow-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px 4px;
+}
+
+.cflow-info p {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cflow-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 8px 0 12px;
+}
+
+.cf-arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cf-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.cf-arrow:not(:disabled):hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cf-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.cf-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.cf-dots button.on {
+  background: var(--accent);
+  transform: scale(1.4);
+}
+
+.project.flash {
+  animation: flash-border 1.4s ease;
+}
+
+@keyframes flash-border {
+  0%, 60% { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* tilting screenshot viewer */
+.lightbox figure img {
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cflow-card { transition: none; }
+  .project.flash { animation: none; }
+}
