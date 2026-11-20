@@ -267,3 +267,9 @@ textarea {
   translate: 0 0;
   transition: none;
 }
+
+/* No scroll progress bar at the top */
+#progress,
+.progress {
+  display: none;
+}
