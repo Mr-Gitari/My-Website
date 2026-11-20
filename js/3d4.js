@@ -1,4 +1,4 @@
-/* The cube leans toward the pointer. Remove this script and
+/* (Pointer hook, now unused) toward the pointer. Remove this script and
    css/revamp3d4.css to switch off. */
 (() => {
   "use strict";

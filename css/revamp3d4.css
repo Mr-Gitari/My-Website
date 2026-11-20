@@ -1,4 +1,4 @@
-/* Availability pill and wireframe cube (see js/3d4.js) */
+/* Availability pill and orbit rings (see js/3d4.js) */
 .status {
   display: inline-flex;
   align-items: center;
@@ -53,48 +53,49 @@
   }
 }
 
-.cube {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  width: 44px;
-  height: 44px;
-  perspective: 300px;
-  pointer-events: none;
-  --rx: -24deg;
-  --ry: 35deg;
-}
-
-.cube-in {
+/* orbit rings around the photo */
+.avatar-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform: rotateX(var(--rx)) rotateY(var(--ry));
-  animation: cube-spin 14s linear infinite;
+  z-index: 1;
 }
 
-.cube .f {
+.orbit {
+  position: absolute;
+  inset: -34px;
+  z-index: 0;
+  perspective: 520px;
+  pointer-events: none;
+}
+
+.ring {
   position: absolute;
   inset: 0;
-  border: 1.5px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, transparent);
-  opacity: 0.9;
+  border: 1px solid color-mix(in srgb, var(--accent) 75%, transparent);
+  border-radius: 50%;
+  animation: orbit-spin 9s linear infinite;
 }
 
-.cube .f1 { transform: translateZ(22px); }
-.cube .f2 { transform: rotateY(180deg) translateZ(22px); }
-.cube .f3 { transform: rotateY(90deg) translateZ(22px); }
-.cube .f4 { transform: rotateY(-90deg) translateZ(22px); }
-.cube .f5 { transform: rotateX(90deg) translateZ(22px); }
-.cube .f6 { transform: rotateX(-90deg) translateZ(22px); }
+.r1 { --tilt: 66deg; }
+.r2 { --tilt: 72deg; inset: 12px; animation-duration: 13s; animation-direction: reverse; border-style: dashed; opacity: 0.6; }
 
-@keyframes cube-spin {
-  from { transform: rotateX(var(--rx)) rotateY(var(--ry)); }
-  to { transform: rotateX(var(--rx)) rotateY(calc(var(--ry) + 360deg)); }
+.ring b {
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+@keyframes orbit-spin {
+  from { transform: rotateX(var(--tilt)) rotateZ(0deg); }
+  to { transform: rotateX(var(--tilt)) rotateZ(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cube-in { animation: none; }
+  .ring { animation: none; }
   .status i::after { animation: none; }
 }
