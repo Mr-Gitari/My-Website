@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/revamp3d3.css">
   <link rel="stylesheet" href="css/revamp3d4.css">
   <link rel="stylesheet" href="css/revamp3d5.css">
+  <link rel="stylesheet" href="css/revamp3d6.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,6 +45,7 @@
   </script>
 </head>
 <body>
+  <canvas id="field" aria-hidden="true"></canvas>
 
   <div class="intro" aria-hidden="true"><span class="intro-mark">RM</span><span class="intro-line"></span></div>
 
@@ -544,6 +546,20 @@
         <h2>Get in touch</h2>
         <p class="lead">Have a project, an internship or a collaboration in mind? Send me a message and I'll get back to you.</p>
 
+        <div class="ccube-wrap">
+          <div class="ccube" id="ccube" role="group" aria-label="Contact cube. Drag to turn it, tap the front face to open it.">
+            <div class="ccube-in" id="ccube-in">
+              <a draggable="false" class="cf f0 on" href="tel:+254794040986"><svg class="ico"><use href="#i-phone"/></svg><b>Call</b><span>+254 794 040 986</span></a>
+              <a draggable="false" class="cf f1" href="https://wa.me/254794040986?text=Hi%20Raphael%2C%20I%20found%20your%20digital%20business%20card." target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-whatsapp"/></svg><b>WhatsApp</b><span>Chat now</span></a>
+              <a draggable="false" class="cf f2" href="mailto:raphaelmuchiri79@gmail.com"><svg class="ico"><use href="#i-mail"/></svg><b>Email</b><span>Send a message</span></a>
+              <a draggable="false" class="cf f3" href="https://www.linkedin.com/in/mr-gitari" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-linkedin"/></svg><b>LinkedIn</b><span>mr-gitari</span></a>
+              <a draggable="false" class="cf f4" href="https://github.com/Mr-Gitari" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-github"/></svg><b>GitHub</b><span>Mr-Gitari</span></a>
+              <a draggable="false" class="cf f5" href="Raphael-Gitari-Muchiri-CV.pdf" download><svg class="ico"><use href="#i-download"/></svg><b>CV</b><span>Download PDF</span></a>
+            </div>
+          </div>
+          <p class="ccube-hint">Drag the cube to turn it &middot; tap the face to open</p>
+        </div>
+
         <form class="form" id="contact-form" data-endpoint="" novalidate>
           <label>Your name
             <input type="text" name="name" id="f-name" autocomplete="name" placeholder="Jane Doe" required>
@@ -658,6 +674,7 @@
   <script src="js/3d3.js" defer></script>
   <script src="js/3d4.js" defer></script>
   <script src="js/3d5.js" defer></script>
+  <script src="js/3d6.js" defer></script>
   <script src="js/main.js"></script>
 </body>
 </html>
