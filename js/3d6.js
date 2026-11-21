@@ -141,7 +141,7 @@
       vy: (Math.random() - 0.5) * 0.0007,
     }));
     let w = 0, h = 0, dpr = 1, tx = 0, ty = 0, cx = 0, cy = 0, running = true;
-    let color = "198,244,50";
+    let color = "198,244,50", boost = 1;
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -153,6 +153,7 @@
       const c = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
       const m = /^#?([0-9a-f]{6})$/i.exec(c);
       if (m) { const n = parseInt(m[1], 16); color = `${n >> 16},${(n >> 8) & 255},${n & 255}`; }
+      boost = document.documentElement.getAttribute("data-theme") === "light" ? 4 : 1;
     };
     const aim = (x, y) => { tx = (x / w - 0.5) * 2; ty = (y / h - 0.5) * 2; };
     window.addEventListener("pointermove", (e) => aim(e.clientX, e.clientY), { passive: true });
@@ -193,7 +194,7 @@
         for (let j = i + 1; j < N; j++) {
           const b = proj[j], dx = a.x - b.x, dy = a.y - b.y, d = dx * dx + dy * dy;
           if (d < 12000) {
-            ctx.strokeStyle = `rgba(${color},${((1 - d / 12000) * 0.12).toFixed(3)})`;
+            ctx.strokeStyle = `rgba(${color},${Math.min(0.5, (1 - d / 12000) * 0.12 * boost).toFixed(3)})`;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
@@ -201,7 +202,7 @@
       }
       for (let i = 0; i < N; i++) {
         const a = proj[i];
-        ctx.fillStyle = `rgba(${color},${(0.12 + a.f * 0.22).toFixed(2)})`;
+        ctx.fillStyle = `rgba(${color},${Math.min(0.85, (0.12 + a.f * 0.22) * boost).toFixed(2)})`;
         ctx.beginPath(); ctx.arc(a.x, a.y, 1 + a.f * 1.3, 0, 6.283); ctx.fill();
       }
       requestAnimationFrame(frame);

@@ -24,7 +24,7 @@
 :root[data-theme="light"] {
   --bg: #f4f2ec;
   --bg2: #ffffff;
-  --surface: rgba(255, 255, 255, 0.6);
+  --surface: rgba(255, 255, 255, 0.3);
   --surface-strong: rgba(10, 10, 10, 0.05);
   --border: rgba(10, 10, 10, 0.16);
   --text: #121212;
