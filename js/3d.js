@@ -69,7 +69,7 @@
     });
 
     let rotX = 0.3, rotY = 0, vx = 0, vy = reduce ? 0 : 0.004;
-    let dragging = false, lastX = 0, lastY = 0, visible = false, raf = 0;
+    let slow = false, dragging = false, lastX = 0, lastY = 0, visible = false, raf = 0;
 
     const draw = () => {
       const R = sphere.clientWidth * 0.4;
@@ -92,7 +92,7 @@
       if (!dragging) {
         rotY += vy; rotX += vx;
         vx *= 0.95;
-        vy = reduce ? vy * 0.95 : vy + (0.004 - vy) * 0.03;
+        vy = reduce ? vy * 0.95 : vy + ((slow ? 0.0012 : 0.004) - vy) * 0.06;
       }
       draw();
       raf = visible && !reduce ? requestAnimationFrame(tick) : 0;
@@ -117,6 +117,8 @@
       vy = dx * 0.012; vx = -dy * 0.012;
       if (reduce) draw();
     });
+    sphere.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") slow = true; });
+    sphere.addEventListener("pointerleave", () => { slow = false; });
     const end = () => { dragging = false; sphere.classList.remove("grabbing"); };
     sphere.addEventListener("pointerup", end);
     sphere.addEventListener("pointercancel", end);

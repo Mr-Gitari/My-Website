@@ -1,0 +1,24 @@
+/* Nairobi clock */
+.clock{display:flex;width:fit-content;max-width:100%;align-items:center;justify-content:center;gap:8px;margin:2px auto 8px;padding:0 8px;color:var(--muted);font-size:.78rem;text-align:center}
+.clock i{flex:none;width:8px;height:8px;border-radius:50%;background:#94a3b8}
+.clock.on i{background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.clock.off i{background:#f59e0b}
+
+/* skill picking */
+.sphere-word.picked{background:var(--accent);color:var(--on-accent,#0a0a0a);border-color:var(--accent);box-shadow:0 0 18px color-mix(in srgb,var(--accent) 60%,transparent)}
+.skill-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 18px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:12px;background:color-mix(in srgb,var(--accent) 8%,transparent);font-size:.88rem}
+.skill-bar[hidden]{display:none}
+.skill-bar button{border:1px solid var(--accent);background:transparent;color:var(--accent);padding:5px 12px;border-radius:999px;font:600 .8rem inherit;cursor:pointer}
+.skill-bar button:hover{background:var(--accent);color:var(--on-accent,#0a0a0a)}
+.skill-bar .skill-x{margin-left:auto;border-color:var(--border);color:var(--muted)}
+.project,.cflow-card{transition:opacity .3s,filter .3s,outline-color .3s}
+.skill-dim{opacity:.35;filter:saturate(.5)}
+.skill-hit{outline:2px solid var(--accent);outline-offset:3px}
+
+/* journey depth */
+.timeline.depth{perspective:900px}
+.timeline.depth .t-item{transform-origin:left center;transform:rotateY(-14deg) translateZ(-30px);opacity:.6;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.timeline.depth .t-item.reached{transform:none;opacity:1}
+.timeline.depth::after{filter:drop-shadow(0 0 6px var(--accent))}
+@media (prefers-reduced-motion:reduce){.timeline.depth .t-item{transform:none;opacity:1;transition:none}}
+.sphere-hint{white-space:nowrap}
