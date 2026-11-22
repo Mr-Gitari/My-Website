@@ -205,10 +205,14 @@
   translate: calc(var(--px) * -9px) calc(var(--py) * -7px);
 }
 
-.profile .pf-front::before {
+.profile .pf-back {
+  position: relative;
+}
+
+.profile .pf-back::before {
   content: "RM";
   position: absolute;
-  top: 120px;
+  bottom: 8px;
   left: 50%;
   z-index: 0;
   color: transparent;
@@ -228,6 +232,10 @@
   z-index: 1;
 }
 
+.profile .pf-back > * {
+  z-index: 1;
+}
+
 .profile .pf-front > .pf-flip {
   position: absolute;
 }
@@ -235,5 +243,5 @@
 @media (prefers-reduced-motion: reduce) {
   .dcard, .lb-ring-in { transition: none; }
   .profile h1, .profile .role, .profile .status, .profile .proof,
-  .profile .orbit, .profile .pf-front::before { translate: none; }
+  .profile .orbit, .profile .pf-back::before { translate: -50% 0; }
 }
