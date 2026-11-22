@@ -1,0 +1,34 @@
+/* Magnetic cursor, spotlight cards, command palette */
+.cur-dot,.cur-ring{position:fixed;left:0;top:0;z-index:9999;pointer-events:none;border-radius:50%;opacity:0;transition:opacity .25s}
+.cur-on .cur-dot,.cur-on .cur-ring{opacity:1}
+.cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--accent)}
+.cur-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--accent);transition:opacity .25s,width .2s,height .2s,margin .2s,background .2s}
+.cur-hot .cur-ring{width:52px;height:52px;margin:-26px 0 0 -26px;background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.cur-hot .cur-dot{opacity:0}
+.mag{transition:translate .25s cubic-bezier(.2,.8,.2,1)}
+@media (hover:hover) and (pointer:fine){.cur-on,.cur-on a,.cur-on button{cursor:none}.cur-on input,.cur-on textarea{cursor:text}}
+
+.card,.project{--sx:50%;--sy:50%;position:relative}
+.card::after,.project::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(420px circle at var(--sx) var(--sy),color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%)}
+.card.lit::after,.project.lit::after{opacity:1}
+#about,.project{transition:transform .25s ease-out}
+#about.tilting,.project.tilting{transition:none}
+
+.kbtn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 12px;border-radius:12px;border:1px solid var(--border,rgba(255,255,255,.14));background:var(--surface);color:var(--text);font:600 .85rem inherit;cursor:pointer;margin-right:8px}
+.kbtn kbd{font:600 .7rem ui-monospace,monospace;padding:2px 6px;border-radius:6px;border:1px solid var(--border,rgba(255,255,255,.2));color:var(--muted)}
+.topbar{display:flex;align-items:center}
+.topbar .kbtn{margin-left:auto}
+.pal{border:1px solid var(--border,rgba(255,255,255,.14));border-radius:16px;padding:0;width:min(560px,calc(100vw - 32px));margin:12vh auto auto;background:var(--bg);color:var(--text);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.pal::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(3px)}
+.pal[open]{animation:palIn .22s cubic-bezier(.2,.8,.2,1)}
+@keyframes palIn{from{opacity:0;transform:translateY(-12px) scale(.97)}}
+.pal input{width:100%;box-sizing:border-box;padding:16px 18px;border:0;border-bottom:1px solid var(--border,rgba(255,255,255,.14));background:transparent;color:inherit;font:500 1rem inherit;outline:none}
+.pal ul{list-style:none;margin:0;padding:8px;max-height:min(50vh,360px);overflow:auto}
+.pal li{display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-radius:10px;cursor:pointer;font-size:.92rem}
+.pal li small{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
+.pal li.sel{background:color-mix(in srgb,var(--accent) 16%,transparent);outline:1px solid color-mix(in srgb,var(--accent) 50%,transparent)}
+.pal .empty{padding:18px;color:var(--muted);text-align:center;cursor:default}
+.pal-toast{position:fixed;left:50%;bottom:90px;translate:-50% 0;z-index:9998;padding:10px 16px;border-radius:12px;background:var(--accent);color:#0a0a0a;font-weight:700;font-size:.85rem}
+@media (max-width:520px){.kbtn kbd{display:none}.kbtn{padding:0 10px}}
+@media (prefers-reduced-motion:reduce){.mag,#about,.project{transition:none}.pal[open]{animation:none}}
