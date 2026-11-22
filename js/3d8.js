@@ -63,8 +63,8 @@
 
   /* 3. command palette */
   const dlg = document.createElement("dialog");
-  dlg.className = "pal"; dlg.setAttribute("aria-label", "Command palette");
-  dlg.innerHTML = '<input type="text" placeholder="Type a command or search…" aria-label="Search commands" autocomplete="off"><ul role="listbox"></ul>';
+  dlg.className = "pal"; dlg.setAttribute("aria-label", "Quick actions");
+  dlg.innerHTML = '<input type="text" placeholder="Quick actions: type to filter…" aria-label="Filter quick actions" autocomplete="off"><ul role="listbox"></ul>';
   document.body.appendChild(dlg);
   const input = $("input", dlg), list = $("ul", dlg);
 
@@ -73,11 +73,7 @@
     document.body.appendChild(t); setTimeout(() => t.remove(), 1800);
   };
   const go = id => () => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); };
-  const cmds = [
-    ["Go to Home", "Navigate", go("profile")], ["Go to About", "Navigate", go("about")],
-    ["Go to Skills", "Navigate", go("skills")], ["Go to Projects", "Navigate", go("projects")],
-    ["Go to Journey", "Navigate", go("journey")], ["Go to Contact", "Navigate", go("contact")],
-  ];
+  const cmds = [];
   $$("article.project").forEach(a => {
     const h = $("h3", a); if (!h) return;
     cmds.push(["Open project: " + h.textContent.trim(), "Project", () => { a.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); a.classList.add("flash"); setTimeout(() => a.classList.remove("flash"), 1600); }]);
@@ -128,8 +124,8 @@
   const dock = $("#dock");
   if (dock) {
     const b = document.createElement("button");
-    b.type = "button"; b.className = "dock-search"; b.setAttribute("aria-label", "Search and commands (Ctrl K)"); b.title = "Search (Ctrl K)";
-    b.innerHTML = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
+    b.type = "button"; b.className = "dock-search"; b.setAttribute("aria-label", "Quick actions (Ctrl K)"); b.title = "Quick actions (Ctrl K)";
+    b.innerHTML = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>';
     b.addEventListener("click", open_);
     dock.appendChild(b);
   }
