@@ -125,13 +125,12 @@
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); dlg.open ? dlg.close() : open_(); }
   });
 
-  const top = $(".topbar"), tg = $("#theme-toggle");
-  if (top && tg) {
+  const dock = $("#dock");
+  if (dock) {
     const b = document.createElement("button");
-    b.type = "button"; b.className = "kbtn"; b.setAttribute("aria-label", "Open command palette");
-    b.innerHTML = '<span>Search</span><kbd>Ctrl K</kbd>';
-    if (/Mac|iPhone|iPad/.test(navigator.platform)) $("kbd", b).textContent = "⌘ K";
+    b.type = "button"; b.className = "dock-search"; b.setAttribute("aria-label", "Search and commands (Ctrl K)"); b.title = "Search (Ctrl K)";
+    b.innerHTML = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
     b.addEventListener("click", open_);
-    top.insertBefore(b, tg);
+    dock.appendChild(b);
   }
 })();
