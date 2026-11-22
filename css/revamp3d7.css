@@ -1,0 +1,239 @@
+/* Credential deck, lightbox ring gallery, hero depth layers (see js/3d7.js) */
+
+/* ----- 4. credential deck ----- */
+.deck-wrap {
+  margin: 4px 0 26px;
+}
+
+.deck-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.deck-label span {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.deck {
+  position: relative;
+  width: min(100%, 440px);
+  height: 190px;
+  margin: 0 auto 70px;
+  perspective: 900px;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dcard {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg2) 94%, var(--accent));
+  color: var(--text);
+  text-align: left;
+  cursor: grab;
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+  transform-origin: 50% 100%;
+  will-change: transform;
+  box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.6);
+}
+
+.dcard.top {
+  border-color: var(--accent);
+  cursor: pointer;
+}
+
+.dcard.drag {
+  transition: none;
+  cursor: grabbing;
+}
+
+.dcard .d-date {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dcard h4 {
+  margin: 6px 0 0;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.dcard p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.dcard .d-tag {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.deck-ctl {
+  position: absolute;
+  left: 50%;
+  bottom: -58px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.deck-ctl button {
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.deck-ctl button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ----- 5. lightbox ring gallery ----- */
+.lb-ring {
+  position: relative;
+  height: 96px;
+  margin-top: 6px;
+  perspective: 700px;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+.lb-ring-in {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 0;
+  height: 64px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.lb-ring.dragging .lb-ring-in {
+  transition: none;
+}
+
+.lb-thumb {
+  position: absolute;
+  top: 0;
+  left: -55px;
+  width: 110px;
+  height: 62px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  background: #000;
+  cursor: pointer;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.lb-thumb.current {
+  border-color: var(--accent);
+}
+
+.lb-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  pointer-events: none;
+}
+
+/* ----- 6. hero depth layers ----- */
+.profile {
+  --px: 0;
+  --py: 0;
+}
+
+.profile h1 {
+  translate: calc(var(--px) * 7px) calc(var(--py) * 5px);
+}
+
+.profile .role {
+  translate: calc(var(--px) * 5px) calc(var(--py) * 3px);
+}
+
+.profile .status,
+.profile .proof {
+  translate: calc(var(--px) * 3px) calc(var(--py) * 2px);
+}
+
+.profile .orbit {
+  translate: calc(var(--px) * -9px) calc(var(--py) * -7px);
+}
+
+.profile .pf-front::before {
+  content: "RM";
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  z-index: 0;
+  color: transparent;
+  font-family: var(--display);
+  font-size: 11rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  opacity: 0.1;
+  -webkit-text-stroke: 1px var(--accent);
+  translate: calc(-50% + var(--px) * -16px) calc(var(--py) * -12px);
+  pointer-events: none;
+}
+
+.profile .pf-front > * {
+  position: relative;
+  z-index: 1;
+}
+
+.profile .pf-front > .pf-flip {
+  position: absolute;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dcard, .lb-ring-in { transition: none; }
+  .profile h1, .profile .role, .profile .status, .profile .proof,
+  .profile .orbit, .profile .pf-front::before { translate: none; }
+}
