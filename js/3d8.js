@@ -11,7 +11,7 @@
     document.body.append(dot, ring);
     let x = 0, y = 0, rx = 0, ry = 0, run = false;
     const loop = () => {
-      rx += (x - rx) * 0.2; ry += (y - ry) * 0.2;
+      rx += (x - rx) * 0.55; ry += (y - ry) * 0.55;
       ring.style.transform = `translate(${rx}px,${ry}px)`;
       if (Math.abs(x - rx) + Math.abs(y - ry) > 0.1) requestAnimationFrame(loop); else run = false;
     };
@@ -36,30 +36,30 @@
     document.addEventListener("pointerleave", () => document.body.classList.remove("cur-on", "cur-hot"));
   }
 
-  /* 2. spotlight + gentle tilt */
-  let raf = 0;
+  /* 2. spotlight + gentle tilt (only touches the card under the pointer) */
+  let raf = 0, cur = null, lastE = null;
+  const clear = el => { if (!el) return; el.classList.remove("lit"); if (el.classList.contains("tilting")) { el.classList.remove("tilting"); el.style.transform = ""; } };
   addEventListener("pointermove", e => {
-    if (e.pointerType !== "mouse" || raf) return;
+    if (e.pointerType !== "mouse") return;
+    lastE = e;
+    if (raf) return;
     raf = requestAnimationFrame(() => {
       raf = 0;
-      $$(".card,.project").forEach(el => {
-        const r = el.getBoundingClientRect();
-        const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
-        el.classList.toggle("lit", inside);
-        if (!inside) {
-          if (el.classList.contains("tilting")) { el.classList.remove("tilting"); el.style.transform = ""; }
-          return;
-        }
-        el.style.setProperty("--sx", e.clientX - r.left + "px");
-        el.style.setProperty("--sy", e.clientY - r.top + "px");
-        if (!reduce && (el.id === "about" || el.classList.contains("project"))) {
-          const px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
-          el.classList.add("tilting");
-          el.style.transform = `perspective(1100px) rotateX(${(-py * 3).toFixed(2)}deg) rotateY(${(px * 4).toFixed(2)}deg)`;
-        }
-      });
+      const el = lastE.target.closest ? lastE.target.closest(".card,.project") : null;
+      if (el !== cur) { clear(cur); cur = el; }
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      el.classList.add("lit");
+      el.style.setProperty("--sx", lastE.clientX - r.left + "px");
+      el.style.setProperty("--sy", lastE.clientY - r.top + "px");
+      if (!reduce && (el.id === "about" || el.classList.contains("project"))) {
+        const px = (lastE.clientX - r.left) / r.width - 0.5, py = (lastE.clientY - r.top) / r.height - 0.5;
+        el.classList.add("tilting");
+        el.style.transform = `perspective(1100px) rotateX(${(-py * 3).toFixed(2)}deg) rotateY(${(px * 4).toFixed(2)}deg)`;
+      }
     });
   }, { passive: true });
+  document.addEventListener("pointerleave", () => { clear(cur); cur = null; });
 
   /* 3. command palette */
   const dlg = document.createElement("dialog");

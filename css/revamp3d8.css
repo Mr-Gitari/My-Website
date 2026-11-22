@@ -1,18 +1,18 @@
 /* Magnetic cursor, spotlight cards, command palette */
 .cur-dot,.cur-ring{position:fixed;left:0;top:0;z-index:9999;pointer-events:none;border-radius:50%;opacity:0;transition:opacity .25s}
 .cur-on .cur-dot,.cur-on .cur-ring{opacity:1}
-.cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--accent)}
-.cur-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--accent);transition:opacity .25s,width .2s,height .2s,margin .2s,background .2s}
+.cur-dot{will-change:transform;width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--accent)}
+.cur-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--accent);will-change:transform;transition:opacity .25s,width .15s,height .15s,margin .15s,background .15s}
 .cur-hot .cur-ring{width:52px;height:52px;margin:-26px 0 0 -26px;background:color-mix(in srgb,var(--accent) 14%,transparent)}
 .cur-hot .cur-dot{opacity:0}
-.mag{transition:translate .25s cubic-bezier(.2,.8,.2,1)}
+.mag{transition:translate .12s ease-out}
 @media (hover:hover) and (pointer:fine){.cur-on,.cur-on a,.cur-on button{cursor:none}.cur-on input,.cur-on textarea{cursor:text}}
 
 .card,.project{--sx:50%;--sy:50%;position:relative}
 .card::after,.project::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
   background:radial-gradient(420px circle at var(--sx) var(--sy),color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%)}
 .card.lit::after,.project.lit::after{opacity:1}
-#about,.project{transition:transform .25s ease-out}
+#about,.project{transition:transform .1s ease-out}
 #about.tilting,.project.tilting{transition:none}
 
 .dock-search{display:grid;place-items:center;width:40px;height:40px;align-self:center;margin-left:4px;padding:0;border-radius:8px;border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);background:transparent;color:var(--accent);cursor:pointer;transition:background .2s,color .2s,transform .2s}
