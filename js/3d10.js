@@ -64,8 +64,12 @@
     if (imgs.length) {
       const s = el("section", "cs-sec"); s.append(el("h3", "", "Screens"));
       const grid = el("div", "cs-grid");
-      imgs.forEach(([src, alt, cap]) => {
+      imgs.forEach(([src, alt, cap], n) => {
         const f = el("figure"); const im = el("img"); im.src = src; im.alt = alt; im.loading = "lazy";
+        f.tabIndex = 0; f.setAttribute("role", "button"); f.setAttribute("aria-label", "View full screen: " + (alt || title));
+        const openFull = () => { const btn = shots[n]; if (btn) btn.click(); else fullView(src, alt); };
+        f.addEventListener("click", openFull);
+        f.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openFull(); } });
         f.append(im); if (cap) f.append(el("figcaption", "", cap)); grid.append(f);
       });
       s.append(grid); body.append(s);
@@ -78,6 +82,13 @@
     }
     dlg.append(top, head, body);
   };
+
+  const full = document.createElement("dialog");
+  full.className = "cs-full"; full.setAttribute("aria-label", "Full screen image");
+  const fimg = el("img"); const fx = el("button", "cs-btn", "✕"); fx.type = "button"; fx.setAttribute("aria-label", "Close");
+  full.append(fimg, fx); document.body.appendChild(full);
+  full.addEventListener("click", () => full.close());
+  const fullView = (src, alt) => { fimg.src = src; fimg.alt = alt || ""; full.showModal(); };
 
   const open = i => { idx = i; render(); dlg.showModal(); dlg.scrollTop = 0; };
   dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });

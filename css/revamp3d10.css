@@ -27,3 +27,10 @@
 .cs-grid figcaption{margin-top:6px;font-size:.78rem;color:var(--muted);line-height:1.45}
 .cs-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 @media (prefers-reduced-motion:reduce){.cs[open]{animation:none}}
+.cs-grid figure{cursor:zoom-in}
+.cs-grid figure:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+.cs-full{border:0;padding:0;margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;background:rgba(0,0,0,.94);color:#fff}
+.cs-full[open]{display:grid;place-items:center}
+.cs-full::backdrop{background:#000}
+.cs-full img{max-width:96vw;max-height:94dvh;object-fit:contain;border-radius:8px}
+.cs-full .cs-btn{position:fixed;top:14px;right:14px;color:#fff;background:rgba(255,255,255,.12)}
