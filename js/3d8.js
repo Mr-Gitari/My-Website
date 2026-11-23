@@ -9,6 +9,15 @@
     const dot = document.createElement("div"), ring = document.createElement("div");
     dot.className = "cur-dot"; ring.className = "cur-ring";
     document.body.append(dot, ring);
+    // dialogs open in the browser's top layer, which sits above everything;
+    // popovers live there too, so re-show them above each dialog that opens
+    if (dot.showPopover) {
+      [dot, ring].forEach(n => { n.setAttribute("popover", "manual"); n.classList.add("cur-pop"); });
+      const lift = () => [dot, ring].forEach(n => { try { n.hidePopover(); n.showPopover(); } catch (e) {} });
+      lift();
+      new MutationObserver(m => { if (m.some(r => r.target.tagName === "DIALOG" && r.target.open)) lift(); })
+        .observe(document.body, { attributes: true, attributeFilter: ["open"], subtree: true });
+    }
     let x = 0, y = 0, rx = 0, ry = 0, run = false;
     const loop = () => {
       rx += (x - rx) * 0.55; ry += (y - ry) * 0.55;

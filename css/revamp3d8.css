@@ -31,3 +31,8 @@
 .pal-toast{position:fixed;left:50%;bottom:90px;translate:-50% 0;z-index:9998;padding:10px 16px;border-radius:12px;background:var(--accent);color:#0a0a0a;font-weight:700;font-size:.85rem}
 @media (max-width:380px){.dock-search{width:34px;margin-left:0}}
 @media (prefers-reduced-motion:reduce){.mag,#about,.project{transition:none}.pal[open]{animation:none}}
+.cur-pop{inset:auto;left:0;top:0;padding:0;border:0;overflow:visible;color:inherit}
+.cur-dot.cur-pop{background:var(--accent)}
+.cur-ring.cur-pop{background:transparent;border:1.5px solid var(--accent)}
+.cur-hot .cur-ring.cur-pop{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.cur-pop:not(:popover-open){display:none}
